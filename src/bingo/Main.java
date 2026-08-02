@@ -5,40 +5,25 @@ import java.util.Scanner;
 public class Main {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
+		Menu.showTitle();
 		while (true) {
-			Menu.showTitle();
-			int menu = scanner.nextInt();
+			Menu.showMainMenu();
+			int menu = Input.nextInt(scanner, 1, 3);
 			switch (menu) {
 			case 1:
-				while (true) {
-					Menu.showGameMenu();
-					int select = scanner.nextInt();
-					switch (select) {
-					case 1:
-						break;
-					case 0:
-						break;
-					default:
-						System.out.println("入力が正しくありません。");
-						continue;
-					}
-					break;
-				}
+				Game.showGameMenu(scanner);
 				break;
 			case 2:
 				Menu.showHowToPlay();
-				scanner.nextLine();
-				System.out.print("\n戻る");
+				System.out.print("\n戻る(ENTER)");
 				scanner.nextLine();
 				break;
 			case 3:
 				Menu.exit();
 				scanner.close();
 				return;
-			default:
-				System.out.println("入力が正しくありません。");
-				System.out.println();
 			}
+
 		}
 	}
 }

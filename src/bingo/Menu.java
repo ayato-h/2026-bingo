@@ -9,11 +9,14 @@ public class Menu {
 		System.out.println("██████╔╝██║██║ ╚████║╚██████╔╝╚██████╔╝");
 		System.out.println("╚═════╝ ╚═╝╚═╝  ╚═══╝ ╚═════╝  ╚═════╝");
 		printCenter("-Console Bingo Game 2026-\n");
+	}
+
+	public static void showMainMenu() {
 		printTitle("MAIN MENU");
 		System.out.println("1. ゲーム開始");
 		System.out.println("2. 遊び方");
 		System.out.println("3. 終了");
-		System.out.print("\n選択してください ▶ ");
+		System.out.print("\n▶ ");
 	}
 
 	public static void showHowToPlay() {
@@ -22,7 +25,8 @@ public class Menu {
 		System.out.println("・中央はFREEマスです。");
 		System.out.println("・抽選された数字と同じ数字があれば開きます。");
 		System.out.println("・縦・横・斜めのいずれか1列が揃うとBINGOです。");
-		System.out.println("\n-----------------------------------------");
+		System.out.println("");
+		printLine();
 	}
 
 	public static void showGameMenu() {
@@ -30,12 +34,17 @@ public class Menu {
 		System.out.println("1. 5 × 5");
 		System.out.println("2. 3 × 3");
 		System.out.println("3. 7 × 7");
-		System.out.println("\n0. 戻る");
-		System.out.print("\n選択してください ▶ ");
+		printLine();
+		System.out.println("0. 戻る");
+		System.out.print("\n▶ ");
 	}
 
 	public static void exit() {
 		printTitle("GAME CLOSED");
+	}
+
+	public static void printLine() {
+		System.out.println("----------------------------------------");
 	}
 
 	public static void printTitle(String title) {
