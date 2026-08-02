@@ -15,7 +15,7 @@ public class Main {
 				break;
 			case 2:
 				Menu.showHowToPlay();
-				System.out.print("\n戻る(ENTER)");
+				System.out.print("\n[ENTER] 戻る");
 				scanner.nextLine();
 				break;
 			case 3:

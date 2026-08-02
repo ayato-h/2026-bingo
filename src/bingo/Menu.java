@@ -23,11 +23,10 @@ public class Menu {
 
 	public static void showHowToPlay() {
 		printTitle("HOW TO PLAY");
-		System.out.println("\n・5×5のビンゴカードが配られます。");
-		System.out.println("・中央はFREEマスです。");
-		System.out.println("・抽選された数字と同じ数字があれば開きます。");
-		System.out.println("・縦・横・斜めのいずれか1列が揃うとBINGOです。");
-		System.out.println("");
+		System.out.println("\n① ビンゴカードが配られます。");
+		System.out.println("② 中央のマスはFREEです。");
+		System.out.println("③ 抽選された数字があればマスが開きます。");
+		System.out.println("④ 縦・横・斜めの1列が揃うとBINGOです。\n");
 		printLine();
 	}
 
