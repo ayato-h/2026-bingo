@@ -2,13 +2,15 @@ package bingo;
 
 public class Menu {
 	public static void showTitle() {
+		System.out.print(Color.YELLOW);
 		System.out.println("\n██████╗ ██╗███╗   ██╗ ██████╗  ██████╗");
 		System.out.println("██╔══██╗██║████╗  ██║██╔════╝ ██╔═══██╗");
 		System.out.println("██████╔╝██║██╔██╗ ██║██║  ███╗██║   ██║");
 		System.out.println("██╔══██╗██║██║╚██╗██║██║   ██║██║   ██║");
 		System.out.println("██████╔╝██║██║ ╚████║╚██████╔╝╚██████╔╝");
 		System.out.println("╚═════╝ ╚═╝╚═╝  ╚═══╝ ╚═════╝  ╚═════╝");
-		printCenter("-Console Bingo Game 2026-\n");
+		System.out.print(Color.RESET);
+		printSubTitle("- Console Bingo Game 2026 -\n");
 	}
 
 	public static void showMainMenu() {
@@ -42,7 +44,7 @@ public class Menu {
 	public static void exit() {
 		showTitle();
 		printTitle("GAME CLOSED");
-		printCenter("-Thank you for playing-");
+		printCenter("- Thank you for playing -");
 	}
 
 	public static void printLine() {
@@ -55,8 +57,18 @@ public class Menu {
 		int padding = (width - title.length()) / 2;
 		if (padding < 0)
 			padding = 0;
-		System.out.println(" ".repeat(padding) + title);
+		System.out.println(" ".repeat(padding) + Color.CYAN + title + Color.RESET);
 		System.out.println("=".repeat(width));
+
+	}
+
+	public static void printSubTitle(String text) {
+		final int width = 40;
+		int padding = (width - text.length()) / 2;
+		if (padding < 0) {
+			padding = 0;
+		}
+		System.out.println(" ".repeat(padding) + Color.CYAN + text + Color.RESET);
 	}
 
 	public static void printCenter(String text) {
