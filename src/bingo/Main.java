@@ -10,12 +10,25 @@ public class Main {
 			int menu = scanner.nextInt();
 			switch (menu) {
 			case 1:
-				// ゲーム開始
+				while (true) {
+					Menu.showGameMenu();
+					int select = scanner.nextInt();
+					switch (select) {
+					case 1:
+						break;
+					case 0:
+						break;
+					default:
+						System.out.println("入力が正しくありません。");
+						continue;
+					}
+					break;
+				}
 				break;
 			case 2:
 				Menu.showHowToPlay();
 				scanner.nextLine();
-				System.out.print("\nENTER. 戻る");
+				System.out.print("\n戻る");
 				scanner.nextLine();
 				break;
 			case 3:

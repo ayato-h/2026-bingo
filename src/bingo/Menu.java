@@ -25,6 +25,15 @@ public class Menu {
 		System.out.println("\n-----------------------------------------");
 	}
 
+	public static void showGameMenu() {
+		printTitle("GAME START");
+		System.out.println("1. 5 × 5");
+		System.out.println("2. 3 × 3");
+		System.out.println("3. 7 × 7");
+		System.out.println("\n0. 戻る");
+		System.out.print("\n選択してください ▶ ");
+	}
+
 	public static void exit() {
 		printTitle("GAME CLOSED");
 	}
