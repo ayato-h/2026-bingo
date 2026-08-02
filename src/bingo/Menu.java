@@ -40,7 +40,9 @@ public class Menu {
 	}
 
 	public static void exit() {
+		showTitle();
 		printTitle("GAME CLOSED");
+		printCenter("-Thank you for playing-");
 	}
 
 	public static void printLine() {
