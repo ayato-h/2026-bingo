@@ -3,12 +3,18 @@ package bingo;
 public class Menu {
 	public static void showTitle() {
 		System.out.print(Color.YELLOW);
-		System.out.println("\n██████╗ ██╗███╗   ██╗ ██████╗  ██████╗");
-		System.out.println("██╔══██╗██║████╗  ██║██╔════╝ ██╔═══██╗");
-		System.out.println("██████╔╝██║██╔██╗ ██║██║  ███╗██║   ██║");
-		System.out.println("██╔══██╗██║██║╚██╗██║██║   ██║██║   ██║");
-		System.out.println("██████╔╝██║██║ ╚████║╚██████╔╝╚██████╔╝");
-		System.out.println("╚═════╝ ╚═╝╚═╝  ╚═══╝ ╚═════╝  ╚═════╝");
+		printCenter("\n██████╗ ██╗███╗   ██╗ ██████╗  ██████╗");
+		printCenter("██╔══██╗██║████╗  ██║██╔════╝ ██╔═══██╗");
+		printCenter("██████╔╝██║██╔██╗ ██║██║  ███╗██║   ██║");
+		printCenter("██╔══██╗██║██║╚██╗██║██║   ██║██║   ██║");
+		printCenter("██████╔╝██║██║ ╚████║╚██████╔╝╚██████╔╝");
+		printCenter("╚═════╝ ╚═╝╚═╝  ╚═══╝ ╚═════╝  ╚═════╝");
+		//		System.out.println("\n██████╗ ██╗███╗   ██╗ ██████╗  ██████╗");
+		//		System.out.println("██╔══██╗██║████╗  ██║██╔════╝ ██╔═══██╗");
+		//		System.out.println("██████╔╝██║██╔██╗ ██║██║  ███╗██║   ██║");
+		//		System.out.println("██╔══██╗██║██║╚██╗██║██║   ██║██║   ██║");
+		//		System.out.println("██████╔╝██║██║ ╚████║╚██████╔╝╚██████╔╝");
+		//		System.out.println("╚═════╝ ╚═╝╚═╝  ╚═══╝ ╚═════╝  ╚═════╝");
 		System.out.print(Color.RESET);
 		printSubTitle("- Console Bingo Game 2026 -\n");
 	}
@@ -71,11 +77,11 @@ public class Menu {
 	}
 
 	public static void printCenter(String text) {
-		printCenter(text, 60);
-	}
-
-	public static void printCenter(String text, int width) {
-		int padding = Math.max(0, (width - text.length()) / 2);
+		final int width = 40;
+		int padding = (width - text.length()) / 2;
+		if (padding < 0) {
+			padding = 0;
+		}
 		System.out.println(" ".repeat(padding) + text);
 	}
 }
