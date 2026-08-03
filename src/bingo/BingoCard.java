@@ -1,7 +1,16 @@
 package bingo;
 
+import java.util.ArrayList;
+import java.util.Collections;
+
 public class BingoCard {
 	public static void showCard(int size) {
+		ArrayList<Integer> numbers = new ArrayList<>();
+		for (int i = 1; i <= 99; i++) {
+			numbers.add(i);
+		}
+		Collections.shuffle(numbers);
+		int index = 0;
 		Menu.printTitle(size + " × " + size + " BINGO CARD");
 		printCard(createHeader(size), size);
 		printCard(createBorder(size), size);
@@ -9,10 +18,11 @@ public class BingoCard {
 			StringBuilder line = new StringBuilder();
 			line.append(String.format("%2d |", row + 1));
 			for (int col = 0; col < size; col++) {
+
 				if (size % 2 == 1 && row == size / 2 && col == size / 2) {
 					line.append("FREE|");
 				} else {
-					line.append(" 00 |");
+					line.append(String.format("%3d |", numbers.get(index++)));
 				}
 			}
 			printCard(line.toString(), size);
