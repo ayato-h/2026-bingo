@@ -28,19 +28,23 @@ public class Game {
 	public static void start5x5(Scanner scanner) {
 		Menu.printTitle("5 × 5 BINGO");
 		setUpPlayer(scanner);
-		BingoCard.showCard(5);
+		int[][] card = BingoCard.createCard(5);
+		BingoCard.showCard(card);
+
 	}
 
 	public static void start3x3(Scanner scanner) {
 		Menu.printTitle("3 × 3 BINGO");
 		setUpPlayer(scanner);
-		BingoCard.showCard(3);
+		int[][] card = BingoCard.createCard(3);
+		BingoCard.showCard(card);
 	}
 
 	public static void start7x7(Scanner scanner) {
 		Menu.printTitle("7 × 7 BINGO");
 		setUpPlayer(scanner);
-		BingoCard.showCard(7);
+		int[][] card = BingoCard.createCard(7);
+		BingoCard.showCard(card);
 	}
 
 	private static void setUpPlayer(Scanner scanner) {
