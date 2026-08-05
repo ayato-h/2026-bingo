@@ -29,7 +29,17 @@ public class Game {
 		Menu.printTitle("5 × 5 BINGO");
 		setUpPlayer(scanner);
 		int[][] card = BingoCard.createCard(5);
-		BingoCard.showCard(card);
+		NumberGenerator generator = new NumberGenerator();
+
+		while (true) {
+			int number = generator.nextNumber();
+			System.out.println("今回の数字 ▶ " + number);
+			BingoCard.openNumber(card, number);
+			System.out.println();
+			BingoCard.showCard(card);
+			System.out.print("\n[ENTER] 次の数字");
+			scanner.nextLine();
+		}
 
 	}
 

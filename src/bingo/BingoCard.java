@@ -46,8 +46,8 @@ public class BingoCard {
 					line.append("FREE|");
 				} else if (card[row][col] == -1) {
 
-					line.append(" ●  |");
-
+					//					line.append(" ●  |");
+					line.append(" // |");
 				} else {
 
 					line.append(String.format("%3d |", card[row][col]));
