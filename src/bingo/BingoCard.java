@@ -44,8 +44,14 @@ public class BingoCard {
 						&& row == size / 2
 						&& col == size / 2) {
 					line.append("FREE|");
+				} else if (card[row][col] == -1) {
+
+					line.append(" ●  |");
+
 				} else {
+
 					line.append(String.format("%3d |", card[row][col]));
+
 				}
 			}
 			printCard(line.toString(), size);
@@ -78,5 +84,17 @@ public class BingoCard {
 		int padding = Math.max(0, (width - cardWidth) / 2);
 
 		System.out.println(" ".repeat(padding) + text);
+	}
+
+	public static void openNumber(int[][] card, int number) {
+
+		for (int row = 0; row < card.length; row++) {
+			for (int col = 0; col < card[row].length; col++) {
+				if (card[row][col] == number) {
+					card[row][col] = -1;
+				}
+			}
+		}
+
 	}
 }
