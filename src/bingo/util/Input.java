@@ -1,4 +1,4 @@
-package bingo;
+package bingo.util;
 
 import java.util.Scanner;
 

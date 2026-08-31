@@ -1,4 +1,4 @@
-package bingo;
+package bingo.game;
 
 import java.util.ArrayList;
 import java.util.Collections;

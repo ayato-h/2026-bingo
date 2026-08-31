@@ -1,10 +1,12 @@
-package bingo;
+package bingo.game;
 
 import java.util.Scanner;
 
-public class Game {
-	private static Player player;
+import bingo.util.Color;
+import bingo.util.Input;
+import bingo.util.Menu;
 
+public class Game {
 	public static void showGameMenu(Scanner scanner) {
 		while (true) {
 			Menu.showGameMenu();
@@ -26,18 +28,17 @@ public class Game {
 	}
 
 	public static void start5x5(Scanner scanner) {
-		Menu.printTitle("5 × 5 BINGO");
-		setUpPlayer(scanner);
 		int[][] card = BingoCard.createCard(5);
 		NumberGenerator generator = new NumberGenerator();
 
 		while (true) {
 			int number = generator.nextNumber();
-			System.out.println("今回の数字 ▶ " + number);
 			BingoCard.openNumber(card, number);
 			System.out.println();
 			BingoCard.showCard(card);
-			System.out.print("\n[ENTER] 次の数字");
+			String drawNumberText = "─── Draw " + number + " ───";
+			Menu.printCenter(drawNumberText);
+			System.out.print("\n" + Color.ORANGE + "[ENTER]" + Color.RESET + " 次の数字");
 			scanner.nextLine();
 		}
 
@@ -45,24 +46,13 @@ public class Game {
 
 	public static void start3x3(Scanner scanner) {
 		Menu.printTitle("3 × 3 BINGO");
-		setUpPlayer(scanner);
 		int[][] card = BingoCard.createCard(3);
 		BingoCard.showCard(card);
 	}
 
 	public static void start7x7(Scanner scanner) {
 		Menu.printTitle("7 × 7 BINGO");
-		setUpPlayer(scanner);
 		int[][] card = BingoCard.createCard(7);
 		BingoCard.showCard(card);
-	}
-
-	private static void setUpPlayer(Scanner scanner) {
-		if (player == null) {
-			System.out.print("プレイヤー名 ▶ ");
-			String name = scanner.nextLine();
-			player = new Player(name);
-		}
-		System.out.println("\nようこそ、" + player.getName() + "さん");
 	}
 }

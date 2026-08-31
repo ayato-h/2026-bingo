@@ -1,4 +1,6 @@
-package bingo;
+package bingo.util;
+
+import bingo.model.Player;
 
 public class Menu {
 	public static void showTitle() {
@@ -19,30 +21,47 @@ public class Menu {
 		printSubTitle("- Console Bingo Game 2026 -\n");
 	}
 
-	public static void showMainMenu() {
+	public static void showMainMenu(Player player) {
 		printTitle("MAIN MENU");
-		System.out.println("1. ゲーム開始");
-		System.out.println("2. 遊び方");
-		System.out.println("3. 終了");
+		System.out.println(Color.ORANGE + "1." + Color.RESET + " ゲーム開始");
+		System.out.println(Color.ORANGE + "2." + Color.RESET + " 設定");
+		System.out.println(Color.ORANGE + "3." + Color.RESET + " 遊び方");
+		printLine();
+		System.out.println(Color.ORANGE + "0." + Color.RESET + " 終了");
+		System.out.print("\n▶ ");
+	}
+
+	public static void showSettings(Player player) {
+		printTitle("SETTINGS");
+		System.out.println(" [現在の設定]");
+		System.out.println("  モード	:");
+		System.out.println("  名前	:" + player.getName());
+		System.out.println("  文字色	:");
+		printLine();
+		System.out.println(Color.ORANGE + "1." + Color.RESET + " モード選択");
+		System.out.println(Color.ORANGE + "2." + Color.RESET + " 名前変更");
+		System.out.println(Color.ORANGE + "3." + Color.RESET + " 文字色");
+		printLine();
+		System.out.println(Color.ORANGE + "0." + Color.RESET + " 戻る");
 		System.out.print("\n▶ ");
 	}
 
 	public static void showHowToPlay() {
 		printTitle("HOW TO PLAY");
-		System.out.println("\n① ビンゴカードが配られます。");
-		System.out.println("② 中央のマスはFREEです。");
-		System.out.println("③ 抽選された数字があればマスが開きます。");
-		System.out.println("④ 縦・横・斜めの1列が揃うとBINGOです。\n");
+		System.out.println(Color.ORANGE + "①" + Color.RESET + " ビンゴカードが配られます。");
+		System.out.println(Color.ORANGE + "②" + Color.RESET + " 中央のマスはFREEです。");
+		System.out.println(Color.ORANGE + "③" + Color.RESET + " 抽選された数字があればマスが開きます。");
+		System.out.println(Color.ORANGE + "④" + Color.RESET + " 縦・横・斜めの1列が揃うとBINGOです。");
 		printLine();
 	}
 
 	public static void showGameMenu() {
 		printTitle("GAME START");
-		System.out.println("1. 5 × 5");
-		System.out.println("2. 3 × 3");
-		System.out.println("3. 7 × 7");
+		System.out.println(Color.ORANGE + "1." + Color.RESET + " 5 × 5");
+		System.out.println(Color.ORANGE + "2." + Color.RESET + " 3 × 3");
+		System.out.println(Color.ORANGE + "3." + Color.RESET + " 7 × 7");
 		printLine();
-		System.out.println("0. 戻る");
+		System.out.println(Color.ORANGE + "0." + Color.RESET + " 戻る");
 		System.out.print("\n▶ ");
 	}
 
