@@ -33,14 +33,21 @@ public class Menu {
 
 	public static void showSettings(Player player) {
 		printTitle("SETTINGS");
-		System.out.println(" [現在の設定]");
-		System.out.println("  モード	:");
-		System.out.println("  名前	:" + player.getName());
-		System.out.println("  文字色	:");
+		System.out
+				.println(Color.ORANGE + "1." + Color.RESET + " モード		: " + Color.ORANGE + "NORMAL" + Color.RESET);
+		System.out.println(
+				Color.ORANGE + "2." + Color.RESET + " 名前		: " + Color.ORANGE + player.getName() + Color.RESET);
+		System.out.println(Color.ORANGE + "3." + Color.RESET + " 色		: ");
 		printLine();
-		System.out.println(Color.ORANGE + "1." + Color.RESET + " モード選択");
-		System.out.println(Color.ORANGE + "2." + Color.RESET + " 名前変更");
-		System.out.println(Color.ORANGE + "3." + Color.RESET + " 文字色");
+		System.out.println(Color.ORANGE + "0." + Color.RESET + " 戻る");
+		System.out.print("\n▶ ");
+	}
+
+	public static void showMode(Player player) {
+		printTitle("MODE");
+		System.out.println(Color.ORANGE + "1." + Color.RESET + " NORMAL");
+		System.out.println(Color.ORANGE + "2." + Color.RESET + " ENDLESS");
+		System.out.println(Color.ORANGE + "3." + Color.RESET + " CHALLENGE");
 		printLine();
 		System.out.println(Color.ORANGE + "0." + Color.RESET + " 戻る");
 		System.out.print("\n▶ ");

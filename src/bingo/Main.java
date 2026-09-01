@@ -56,7 +56,8 @@ public class Main {
 			int select = Input.nextInt(scanner, 0, 3);
 			switch (select) {
 			case 1:
-				System.out.println("ゲームモードは現在制作中です。");
+				Menu.showMode(player);
+				int mode = Input.nextInt(scanner, 0, 3);
 				break;
 			case 2:
 				System.out.print("\n新しい名前 ▶ " + Color.YELLOW);
