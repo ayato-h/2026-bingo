@@ -34,10 +34,12 @@ public class BingoCard {
 		return card;
 	}
 
-	public static void showCard(int[][] card) {
+	public static void showCard(int[][] card, int turn) {
 		int size = card.length;
 
 		Menu.printTitle(size + " × " + size + " BINGO CARD");
+		String turnText = "─── TURN " + turn + " ───";
+		Menu.printCenter(turnText);
 		printCard(createHeader(size), size);
 		printCard(createBorder(size), size);
 
@@ -143,6 +145,32 @@ public class BingoCard {
 		}
 
 		return true;
+	}
+
+	public static boolean isBingo(int[][] card) {
+		int size = card.length;
+
+		for (int row = 0; row < size; row++) {
+			if (isBingoRow(card, row)) {
+				return true;
+			}
+		}
+
+		for (int col = 0; col < size; col++) {
+			if (isBingoColumn(card, col)) {
+				return true;
+			}
+		}
+
+		if (isBingoDiagonalLeft(card)) {
+			return true;
+		}
+
+		if (isBingoDiagonalRight(card)) {
+			return true;
+		}
+
+		return false;
 	}
 
 	private static boolean isReachCell(int[][] card, int row, int col) {

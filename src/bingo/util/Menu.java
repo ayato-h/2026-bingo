@@ -33,10 +33,11 @@ public class Menu {
 
 	public static void showSettings(Player player) {
 		printTitle("SETTINGS");
-		System.out
-				.println(Color.ORANGE + "1." + Color.RESET + " モード		: " + Color.ORANGE + "NORMAL" + Color.RESET);
 		System.out.println(
-				Color.ORANGE + "2." + Color.RESET + " 名前		: " + Color.ORANGE + player.getName() + Color.RESET);
+				Color.ORANGE + "1." + Color.RESET + " 名前		: " + Color.ORANGE + player.getName() + Color.RESET);
+		System.out
+				.println(Color.ORANGE + "2." + Color.RESET + " モード		: " + Color.ORANGE + player.getMode()
+						+ Color.RESET);
 		System.out.println(Color.ORANGE + "3." + Color.RESET + " 色		: ");
 		printLine();
 		System.out.println(Color.ORANGE + "0." + Color.RESET + " 戻る");

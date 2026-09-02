@@ -21,7 +21,7 @@ public class Main {
 			int menu = Input.nextInt(scanner, 0, 3);
 			switch (menu) {
 			case 1:
-				Game.showGameMenu(scanner);
+				Game.showGameMenu(scanner, player);
 				break;
 			case 2:
 				showSettings(scanner, player);
@@ -50,20 +50,36 @@ public class Main {
 	}
 
 	private static void showSettings(Scanner scanner, Player player) {
-
 		while (true) {
 			Menu.showSettings(player);
 			int select = Input.nextInt(scanner, 0, 3);
 			switch (select) {
 			case 1:
-				Menu.showMode(player);
-				int mode = Input.nextInt(scanner, 0, 3);
-				break;
-			case 2:
 				System.out.print("\n新しい名前 ▶ " + Color.YELLOW);
 				String name = scanner.nextLine();
 				player.setName(name);
 				System.out.print(Color.RESET);
+				break;
+			case 2:
+				Menu.showMode(player);
+				int mode = Input.nextInt(scanner, 0, 3);
+				switch (mode) {
+				case 1: {
+					player.setMode("NORMAL");
+					break;
+				}
+				case 2: {
+					player.setMode("ENDLESS");
+					break;
+				}
+				case 3: {
+					player.setMode("CHALLENGE");
+					break;
+				}
+				case 0: {
+					break;
+				}
+				}
 				break;
 			case 3:
 				System.out.println("文字色設定は現在制作中です。");
