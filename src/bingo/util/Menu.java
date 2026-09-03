@@ -1,5 +1,7 @@
 package bingo.util;
 
+import java.util.Scanner;
+
 import bingo.model.Player;
 
 public class Menu {
@@ -10,7 +12,7 @@ public class Menu {
 		printCenter("██████╔╝██║██╔██╗ ██║██║  ███╗██║   ██║");
 		printCenter("██╔══██╗██║██║╚██╗██║██║   ██║██║   ██║");
 		printCenter("██████╔╝██║██║ ╚████║╚██████╔╝╚██████╔╝");
-		printCenter("╚═════╝ ╚═╝╚═╝  ╚═══╝ ╚═════╝  ╚═════╝");
+		System.out.println("╚═════╝ ╚═╝╚═╝  ╚═══╝ ╚═════╝  ╚═════╝");
 		//		System.out.println("\n██████╗ ██╗███╗   ██╗ ██████╗  ██████╗");
 		//		System.out.println("██╔══██╗██║████╗  ██║██╔════╝ ██╔═══██╗");
 		//		System.out.println("██████╔╝██║██╔██╗ ██║██║  ███╗██║   ██║");
@@ -35,16 +37,15 @@ public class Menu {
 		printTitle("SETTINGS");
 		System.out.println(
 				Color.ORANGE + "1." + Color.RESET + " 名前		: " + Color.ORANGE + player.getName() + Color.RESET);
-		System.out
-				.println(Color.ORANGE + "2." + Color.RESET + " モード		: " + Color.ORANGE + player.getMode()
-						+ Color.RESET);
+		System.out.println(
+				Color.ORANGE + "2." + Color.RESET + " モード		: " + Color.ORANGE + player.getMode() + Color.RESET);
 		System.out.println(Color.ORANGE + "3." + Color.RESET + " 色		: ");
 		printLine();
 		System.out.println(Color.ORANGE + "0." + Color.RESET + " 戻る");
 		System.out.print("\n▶ ");
 	}
 
-	public static void showMode(Player player) {
+	public static void showMode(Player player, Scanner scanner) {
 		printTitle("MODE");
 		System.out.println(Color.ORANGE + "1." + Color.RESET + " NORMAL");
 		System.out.println(Color.ORANGE + "2." + Color.RESET + " ENDLESS");
@@ -52,6 +53,24 @@ public class Menu {
 		printLine();
 		System.out.println(Color.ORANGE + "0." + Color.RESET + " 戻る");
 		System.out.print("\n▶ ");
+		int mode = Input.nextInt(scanner, 0, 3);
+		switch (mode) {
+		case 1: {
+			player.setMode("NORMAL");
+			break;
+		}
+		case 2: {
+			player.setMode("ENDLESS");
+			break;
+		}
+		case 3: {
+			player.setMode("CHALLENGE");
+			break;
+		}
+		case 0: {
+			break;
+		}
+		}
 	}
 
 	public static void showHowToPlay() {

@@ -61,25 +61,7 @@ public class Main {
 				System.out.print(Color.RESET);
 				break;
 			case 2:
-				Menu.showMode(player);
-				int mode = Input.nextInt(scanner, 0, 3);
-				switch (mode) {
-				case 1: {
-					player.setMode("NORMAL");
-					break;
-				}
-				case 2: {
-					player.setMode("ENDLESS");
-					break;
-				}
-				case 3: {
-					player.setMode("CHALLENGE");
-					break;
-				}
-				case 0: {
-					break;
-				}
-				}
+				Menu.showMode(player, scanner);
 				break;
 			case 3:
 				System.out.println("文字色設定は現在制作中です。");

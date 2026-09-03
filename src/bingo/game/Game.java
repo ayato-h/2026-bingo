@@ -51,10 +51,16 @@ public class Game {
 			String drawNumberText = "─── Draw " + number + " ───";
 			Menu.printCenter(drawNumberText);
 			if (BingoCard.isBingo(card)) {
+				System.out.print("\n" + Color.ORANGE + "[ENTER]" + Color.RESET + " 結果を見る");
+				scanner.nextLine();
 				Menu.printTitle("GAME CLEAR");
-				System.out.println("PLAYER	: " + Color.ORANGE + player.getName() + Color.RESET);
+				Menu.printCenter("─── RESULT ───");
+				System.out.println("\nPLAYER	: " + Color.ORANGE + player.getName() + Color.RESET);
 				System.out.println("TURN	: " + Color.ORANGE + turn + Color.RESET);
-				System.out.println("SCORE	: " + Color.ORANGE + 0 + Color.RESET);
+				System.out.println("SCORE	: " + Color.ORANGE + 0 + Color.RESET + "\n");
+				Menu.printLine();
+				System.out.print(Color.ORANGE + "[ENTER]" + Color.RESET + " 終了");
+				scanner.nextLine();
 				break;
 			}
 			System.out.print("\n" + Color.ORANGE + "[ENTER]" + Color.RESET + " 次へ");
