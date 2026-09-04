@@ -15,7 +15,8 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 		setUpPlayer(scanner);
 		Menu.showTitle();
-		System.out.println(Color.RESET + "ようこそ、" + Color.YELLOW + player.getName() + Color.RESET + "さん\n");
+		System.out.print(Color.ORANGE + "[ENTER]" + Color.RESET + " 開始");
+		scanner.nextLine();
 		while (true) {
 			Menu.showMainMenu(player);
 			int menu = Input.nextInt(scanner, 0, 3);

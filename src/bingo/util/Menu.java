@@ -6,26 +6,25 @@ import bingo.model.Player;
 
 public class Menu {
 	public static void showTitle() {
-		System.out.print(Color.YELLOW);
-		printCenter("\n██████╗ ██╗███╗   ██╗ ██████╗  ██████╗");
+		printCenter(Color.YELLOW + "\n██████╗ ██╗███╗   ██╗ ██████╗  ██████╗");
 		printCenter("██╔══██╗██║████╗  ██║██╔════╝ ██╔═══██╗");
 		printCenter("██████╔╝██║██╔██╗ ██║██║  ███╗██║   ██║");
 		printCenter("██╔══██╗██║██║╚██╗██║██║   ██║██║   ██║");
 		printCenter("██████╔╝██║██║ ╚████║╚██████╔╝╚██████╔╝");
-		System.out.println("╚═════╝ ╚═╝╚═╝  ╚═══╝ ╚═════╝  ╚═════╝");
-		//		System.out.println("\n██████╗ ██╗███╗   ██╗ ██████╗  ██████╗");
-		//		System.out.println("██╔══██╗██║████╗  ██║██╔════╝ ██╔═══██╗");
-		//		System.out.println("██████╔╝██║██╔██╗ ██║██║  ███╗██║   ██║");
-		//		System.out.println("██╔══██╗██║██║╚██╗██║██║   ██║██║   ██║");
-		//		System.out.println("██████╔╝██║██║ ╚████║╚██████╔╝╚██████╔╝");
-		//		System.out.println("╚═════╝ ╚═╝╚═╝  ╚═══╝ ╚═════╝  ╚═════╝");
-		System.out.print(Color.RESET);
+		System.out.println("╚═════╝ ╚═╝╚═╝  ╚═══╝ ╚═════╝  ╚═════╝" + Color.RESET);
 		printSubTitle("- Console Bingo Game 2026 -\n");
 	}
 
 	public static void showMainMenu(Player player) {
 		printTitle("MAIN MENU");
-		System.out.println(Color.ORANGE + "1." + Color.RESET + " ゲーム開始");
+		System.out.println("\n[ " + Color.ORANGE + "PLAYER RECORD" + Color.RESET + " ]");
+		printLine();
+		System.out.println("PLAYER NAME	: " + Color.ORANGE + player.getName() + Color.RESET);
+		System.out.println("3 × 3 BEST	: " + Color.ORANGE + player.getBestTurn3x3() + Color.RESET);
+		System.out.println("5 × 5 BEST	: " + Color.ORANGE + player.getBestTurn5x5() + Color.RESET);
+		System.out.println("7 × 7 BEST	: " + Color.ORANGE + player.getBestTurn7x7() + Color.RESET);
+		printLine();
+		System.out.println("\n" + Color.ORANGE + "1." + Color.RESET + " ゲーム開始");
 		System.out.println(Color.ORANGE + "2." + Color.RESET + " 設定");
 		System.out.println(Color.ORANGE + "3." + Color.RESET + " 遊び方");
 		printLine();
@@ -84,8 +83,8 @@ public class Menu {
 
 	public static void showGameMenu() {
 		printTitle("GAME START");
-		System.out.println(Color.ORANGE + "1." + Color.RESET + " 5 × 5");
-		System.out.println(Color.ORANGE + "2." + Color.RESET + " 3 × 3");
+		System.out.println(Color.ORANGE + "1." + Color.RESET + " 3 × 3");
+		System.out.println(Color.ORANGE + "2." + Color.RESET + " 5 × 5");
 		System.out.println(Color.ORANGE + "3." + Color.RESET + " 7 × 7");
 		printLine();
 		System.out.println(Color.ORANGE + "0." + Color.RESET + " 戻る");
@@ -124,10 +123,14 @@ public class Menu {
 
 	public static void printCenter(String text) {
 		final int width = 40;
-		int padding = (width - text.length()) / 2;
+		String plainText = text.replaceAll("\u001B\\[[;\\d]*m", "");
+
+		int padding = (width - plainText.length()) / 2;
+
 		if (padding < 0) {
 			padding = 0;
 		}
+
 		System.out.println(" ".repeat(padding) + text);
 	}
 }
