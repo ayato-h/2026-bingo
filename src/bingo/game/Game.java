@@ -3,6 +3,7 @@ package bingo.game;
 import java.util.Scanner;
 
 import bingo.model.Player;
+import bingo.service.ScoreService;
 import bingo.util.Color;
 import bingo.util.Input;
 import bingo.util.Menu;
@@ -51,13 +52,29 @@ public class Game {
 			String drawNumberText = "─── Draw " + number + " ───";
 			Menu.printCenter(drawNumberText);
 			if (BingoCard.isBingo(card)) {
+				boolean isBest = ScoreService.updateBestTurn(player, size, turn);
 				System.out.print("\n" + Color.ORANGE + "[ENTER]" + Color.RESET + " 結果を見る");
 				scanner.nextLine();
 				Menu.printTitle("GAME CLEAR");
 				Menu.printCenter("─── RESULT ───");
-				System.out.println("\nPLAYER	: " + Color.ORANGE + player.getName() + Color.RESET);
-				System.out.println("TURN	: " + Color.ORANGE + turn + Color.RESET);
-				System.out.println("SCORE	: " + Color.ORANGE + 0 + Color.RESET + "\n");
+				System.out.println("\nPLAYER		: " + Color.ORANGE + player.getName() + Color.RESET);
+				System.out.println("SCORE		: " + Color.ORANGE + 0 + Color.RESET);
+				if (isBest) {
+					System.out.println("NEW BEST TURN	: " + Color.ORANGE + turn + Color.RESET);
+				} else {
+					switch (size) {
+					case 3:
+						System.out.println("BEST TURN	: " + Color.ORANGE + player.getBestTurn3x3() + Color.RESET);
+						break;
+					case 5:
+						System.out.println("BEST TURN	: " + Color.ORANGE + player.getBestTurn5x5() + Color.RESET);
+						break;
+					case 7:
+						System.out.println("BEST TURN	: " + Color.ORANGE + player.getBestTurn7x7() + Color.RESET);
+						break;
+					}
+				}
+				System.out.println("TURN		: " + Color.ORANGE + turn + Color.RESET + "\n");
 				Menu.printLine();
 				System.out.print(Color.ORANGE + "[ENTER]" + Color.RESET + " 終了");
 				scanner.nextLine();
