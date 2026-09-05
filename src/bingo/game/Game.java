@@ -50,37 +50,8 @@ public class Game {
 			turn++;
 			System.out.println();
 			BingoCard.showCard(card, turn, number);
-
 			if (BingoService.isBingo(card)) {
-				boolean isBest = ScoreService.updateBestTurn(player, size, turn);
-				System.out.print("\n" + Color.ORANGE + "[ENTER]" + Color.RESET + " 結果を見る");
-				scanner.nextLine();
-				Menu.printTitle("GAME CLEAR");
-				System.out.println("\n[ " + Color.ORANGE + "RESULT" + Color.RESET + " ]");
-				Menu.printLine();
-				System.out.println("\nPLAYER		: " + Color.ORANGE + player.getName() + Color.RESET);
-				System.out.println("SCORE		: " + Color.ORANGE + 0 + Color.RESET);
-				if (isBest) {
-					System.out.println("BEST TURN	: " + Color.ORANGE + turn + Color.RESET + " (" + Color.ORANGE
-							+ " NEW " + Color.RESET + ")");
-				} else {
-					switch (size) {
-					case 3:
-						System.out.println("BEST TURN	: " + Color.ORANGE + player.getBestTurn3x3() + Color.RESET);
-						break;
-					case 5:
-						System.out.println("BEST TURN	: " + Color.ORANGE + player.getBestTurn5x5() + Color.RESET);
-						break;
-					case 7:
-						System.out.println("BEST TURN	: " + Color.ORANGE + player.getBestTurn7x7() + Color.RESET);
-						break;
-					}
-				}
-				System.out.println("TURN		: " + Color.ORANGE + turn + Color.RESET + "\n");
-				Menu.printLine();
-				System.out.print(Color.ORANGE + "[ENTER]" + Color.RESET + " 終了");
-				scanner.nextLine();
-				System.out.println();
+				showResult(scanner, player, size, turn);
 				break;
 			}
 			System.out.print("\n" + Color.ORANGE + "[ENTER]" + Color.RESET + " 次へ");
@@ -94,5 +65,38 @@ public class Game {
 
 	public static void startChallenge(Scanner scanner, Player player, int size) {
 
+	}
+
+	public static void showResult(Scanner scanner, Player player, int size, int turn) {
+		boolean isBest = ScoreService.updateBestTurn(player, size, turn);
+		int score = ScoreService.calculateScore(size, turn);
+		System.out.print("\n" + Color.ORANGE + "[ENTER]" + Color.RESET + " 結果を見る");
+		scanner.nextLine();
+		Menu.printTitle("GAME CLEAR");
+		System.out.println("\n[ " + Color.ORANGE + "RESULT" + Color.RESET + " ]");
+		Menu.printLine();
+		System.out.println("\nPLAYER		: " + Color.ORANGE + player.getName() + Color.RESET);
+		System.out.println("SCORE		: " + Color.ORANGE + score + Color.RESET);
+		if (isBest) {
+			System.out.println("BEST TURN	: " + Color.ORANGE + turn + Color.RESET + " (" + Color.ORANGE
+					+ " NEW " + Color.RESET + ")");
+		} else {
+			switch (size) {
+			case 3:
+				System.out.println("BEST TURN	: " + Color.ORANGE + player.getBestTurn3x3() + Color.RESET);
+				break;
+			case 5:
+				System.out.println("BEST TURN	: " + Color.ORANGE + player.getBestTurn5x5() + Color.RESET);
+				break;
+			case 7:
+				System.out.println("BEST TURN	: " + Color.ORANGE + player.getBestTurn7x7() + Color.RESET);
+				break;
+			}
+		}
+		System.out.println("TURN		: " + Color.ORANGE + turn + Color.RESET + "\n");
+		Menu.printLine();
+		System.out.print(Color.ORANGE + "[ENTER]" + Color.RESET + " 終了");
+		scanner.nextLine();
+		System.out.println();
 	}
 }

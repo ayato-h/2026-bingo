@@ -27,4 +27,25 @@ public class ScoreService {
 		}
 		return false;
 	}
+
+	public static int calculateScore(int size, int turn) {
+		int baseScore;
+		switch (size) {
+		case 3:
+			baseScore = 1000;
+			break;
+		case 5:
+			baseScore = 2000;
+			break;
+		case 7:
+			baseScore = 3000;
+			break;
+		default:
+			baseScore = 0;
+		}
+
+		int score = baseScore - (turn - 1) * 50;
+		return Math.max(score, 100);
+
+	}
 }
